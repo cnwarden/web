@@ -25,7 +25,6 @@ class BaseHandler(tornado.web.RequestHandler):
         super(BaseHandler, self).__init__(application, request, **kwargs)
 
     def set_default_headers(self):
-        self.clear()
         # allow cross site
         self.set_header('Content-Type', 'application/json')
         self.set_header("Access-Control-Allow-Origin", "*")
