@@ -21,7 +21,7 @@ import tornado
 import tornado.httpserver
 import tornado.ioloop
 import tornado.web
-from handlers.base_handler import BaseHandler
+from handlers.base_handler import *
 
 STATIC_FILES = os.path.join(os.path.dirname(__file__), 'pages')
 
@@ -29,6 +29,7 @@ settings = {}
 
 routes = [
     (r"/static/(.*)", tornado.web.StaticFileHandler, {"path":STATIC_FILES}),
+    (r"/api/example", ExampleHandler),
     (r".*", BaseHandler)
 ]
 
